@@ -52,7 +52,7 @@ This repository contains the source code\binaries used for building the ``shard-
 
 * ✔️ **Host** your instance of DMR
 
-    * Type docker run -v **D:\UO\src\pkg**:*/pol/pkg* -v **D:\UO\src\scripts**:*/pol/scripts* -v **D:\UO\src\data-template.dev**:*/pol/data* -v **D:\UO\src\config**:*/pol/config* -v **D:\UO\src\realm**:*/pol/realm* -p 5001:5001 **ultimadmr\shard-core**
+    * Type docker run -v **D:\UO\src\pkg**:*/pol/pkg* -v **D:\UO\src\scripts**:*/pol/scripts* -v **D:\UO\src\data-template.dev**:*/pol/data* -v **D:\UO\src\config**:*/pol/config* -v **D:\UO\src\realm**:*/realm* -p 5001:5001 **ultimadmr\shard-core**
 
     * You can now log in in your **Ultima Online client** on ``LoginServer=localhost,5001``
 
@@ -62,23 +62,5 @@ This repository contains the source code\binaries used for building the ``shard-
 
     * And contribute to our project!
 
-
-This docker image has a number of prerequisites!
-
-By default, those mounting points are empty. You must mount those using docker.
-
-Here's a simple instruction on how to generate your realm folder.
-
-Generally, you only want to run this for a first-time setup, or after changing any of your map files!
-
-* Locate your UO folder with all your .mul files (in this example, it's ``D:\Games\UO-Files\``)
-
-* Create a directory for your realm files for your output (in this example, it's ``D:\Development\Realms``)
-
-* ``docker run -v D:\Games\UO-Files\:\mul -v D:\Development\Realms:\realm ultimadmr\dmr-uoconvert``
-
-* Wait patiently for UOconvert to do its thing
-
-* Check out your realm folder, it's got all the realms built to use with [the core docker image](https:\\github.com\karolswdev\dmr-core)
 
 ## Current build status
