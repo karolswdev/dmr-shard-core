@@ -7,6 +7,7 @@ RUN apt-get -y install libmysqlclient20
 RUN apt-get -y install curl
 RUN apt-get -y install libgomp1
 RUN apt-get -y install libssl1.0.0
+RUN apt-get -y install libcurl3
 RUN chmod u+x /pol/pol
 RUN chmod u+x /pol/pol.sh
 ENTRYPOINT /pol/pol.sh
