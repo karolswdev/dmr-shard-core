@@ -1,0 +1,27 @@
+name: CI/CD
+
+on: 
+    push:
+        branches:
+            - '*/**'
+            - '*'
+    pull_request:
+        branches:
+            - develop
+            - master
+
+jobs:
+  build:
+      runs-on: ubuntu-latest
+      env:
+        DOCKER_USERNAME: ${{secrets.docker_username}}
+        DOCKER_PASSWORD: ${{secrets.docker_password}}
+      steps:
+          - uses: actions/checkout@v2
+          - name: 🐋 login to Docker
+            run: bash ./ci/1-docker-hub-login.sh
+          - name: 👷 build docker image
+            run: bash ../ci/2-build-docker-image.sh
+            working-directory: ./src
+          - name: 🐳 publish to Docker
+            run: bash ./ci/3-push-docker-image.sh
